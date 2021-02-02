@@ -1,0 +1,45 @@
+#Create A salary calculator
+
+def main():
+    global var
+    # Get employe name
+    Employee_name = input('What is your name?: ')
+    
+    # Get employee salary
+    number_string = int(input('How much is your biweekly salary? '))
+
+    print('\n=====Employee Pay Stub=====')
+    
+    # print employee name
+    print('Employee name:', Employee_name)
+    
+    # print Biweekly
+    print('Biweekly Salary: $', number_string)
+    
+    # print and display Bonus
+    total = salary_calculator(number_string)
+    print('Bonus: $', round(total,2))
+    
+    # print and calculate Gross Pay
+    gross_pay = total + number_string
+    print('Gross Pay: $', round(gross_pay,2))
+    
+    # print and calculate Deductible
+    Deductible_amount = gross_pay * 0.172
+    print('Deductible Pay: $', round(Deductible_amount,2))
+    
+    # print and calculate Net Pay
+    Net_amount = gross_pay - Deductible_amount
+    print('Net Pay: $', round(Net_amount,2))
+
+# Creates second function for salary bonus 
+def salary_calculator(string):
+    global var
+    if string >= 2000:
+        return string * 0.03
+    elif string > 1000:
+        return string * 0.0325
+    elif string <= 1000:
+        return string * 0.035
+
+main()
